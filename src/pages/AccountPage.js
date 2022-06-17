@@ -178,7 +178,7 @@ function AccountPage({ account }) {
             <span>
               <TYPE.header fontSize={24}>{account?.slice(0, 6) + '...' + account?.slice(38, 42)}</TYPE.header>
               <Link lineHeight={'145.23%'} href={'https://etherscan.io/address/' + account} target="_blank">
-                <TYPE.main fontSize={14}>View on Etherscan</TYPE.main>
+                <TYPE.main fontSize={14}>View on Ftmerscan</TYPE.main>
               </Link>
             </span>
             <AccountWrapper>
@@ -217,11 +217,11 @@ function AccountPage({ account }) {
                 <Flyout>
                   <AutoColumn gap="0px">
                     {positions?.map((p, i) => {
-                      if (p.pair.token1.symbol === 'WETH') {
-                        p.pair.token1.symbol = 'ETH'
+                      if (p.pair.token1.symbol === 'WFTM') {
+                        p.pair.token1.symbol = 'FTM'
                       }
-                      if (p.pair.token0.symbol === 'WETH') {
-                        p.pair.token0.symbol = 'ETH'
+                      if (p.pair.token0.symbol === 'WFTM') {
+                        p.pair.token0.symbol = 'FTM'
                       }
                       return (
                         p.pair.id !== activePosition?.pair.id && (

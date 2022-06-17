@@ -36,7 +36,7 @@ export const stakingClient = new ApolloClient({
 
 export const blockClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://andromeda-graph.metis.io/subgraphs/name/maia-dao/hermes',
+    uri: 'https://andromeda-graph.metis.io/subgraphs/name/maia-dao/blocks',
   }),
   cache: new InMemoryCache(),
 })

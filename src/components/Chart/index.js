@@ -63,8 +63,8 @@ const Chart = ({ data, chartOption, currencyUnit, symbol }) => {
               strokeWidth={2}
               dot={false}
               type="monotone"
-              name={currencyUnit === 'ETH' ? 'Price (ETH/' + symbol + ')' : 'Price (USD/' + symbol + ')'}
-              dataKey={currencyUnit === 'ETH' ? 'ethPerToken' : 'tokenPriceUSD'}
+              name={currencyUnit === 'FTM' ? 'Price (FTM/' + symbol + ')' : 'Price (USD/' + symbol + ')'}
+              dataKey={currencyUnit === 'FTM' ? 'ftmPerToken' : 'tokenPriceUSD'}
               yAxisId={2}
               fill="var(--c-token)"
               opacity={'0.4'}
@@ -74,8 +74,8 @@ const Chart = ({ data, chartOption, currencyUnit, symbol }) => {
               strokeWidth={2}
               dot={false}
               type="monotone"
-              name={currencyUnit === 'USD' ? 'Inverse (' + symbol + '/USD)' : 'Inverse (' + symbol + '/ETH)'}
-              dataKey={currencyUnit === 'USD' ? 'tokensPerUSD' : 'tokensPerEth'}
+              name={currencyUnit === 'USD' ? 'Inverse (' + symbol + '/USD)' : 'Inverse (' + symbol + '/FTM)'}
+              dataKey={currencyUnit === 'USD' ? 'tokensPerUSD' : 'tokensPerFtm'}
               yAxisId={3}
               fill="var(--c-token)"
               opacity={'0'}
@@ -153,8 +153,8 @@ const Chart = ({ data, chartOption, currencyUnit, symbol }) => {
               strokeWidth={2}
               dot={false}
               type="monotone"
-              name={'Total Liquidity' + (currencyUnit === 'USD' ? ' (USD)' : ' (ETH)')}
-              dataKey={currencyUnit === 'USD' ? 'usdLiquidity' : 'ethLiquidity'}
+              name={'Total Liquidity' + (currencyUnit === 'USD' ? ' (USD)' : ' (FTM)')}
+              dataKey={currencyUnit === 'USD' ? 'usdLiquidity' : 'ftmLiquidity'}
               yAxisId={0}
               fill="var(--c-token)"
               opacity={'0.4'}
@@ -162,8 +162,8 @@ const Chart = ({ data, chartOption, currencyUnit, symbol }) => {
             />
             <Area
               type="monotone"
-              name={'Eth Balance'}
-              dataKey={'ethBalance'}
+              name={'Ftm Balance'}
+              dataKey={'ftmBalance'}
               fill="var(--c-token)"
               opacity={'0'}
               stroke="var(--c-token)"
@@ -222,8 +222,8 @@ const Chart = ({ data, chartOption, currencyUnit, symbol }) => {
             />
             <Bar
               type="monotone"
-              name={'Volume' + (currencyUnit === 'USD' ? ' (USD)' : ' (ETH)')}
-              dataKey={currencyUnit === 'USD' ? 'usdVolume' : 'ethVolume'}
+              name={'Volume' + (currencyUnit === 'USD' ? ' (USD)' : ' (FTM)')}
+              dataKey={currencyUnit === 'USD' ? 'usdVolume' : 'ftmVolume'}
               fill="var(--c-token)"
               opacity={'0.4'}
               yAxisId={0}

@@ -29,7 +29,7 @@ import { useMedia } from 'react-use'
 import DoubleTokenLogo from '../components/DoubleLogo'
 import TokenLogo from '../components/TokenLogo'
 import { Hover } from '../components'
-import { useEthPrice } from '../contexts/GlobalData'
+import { useFtmPrice } from '../contexts/GlobalData'
 import Warning from '../components/Warning'
 import { usePathDismissed, useSavedPairs } from '../contexts/LocalStorage'
 
@@ -163,12 +163,12 @@ function PairPage({ pairAddress, history }) {
       : '-'
 
   // token data for usd
-  const [ethPrice] = useEthPrice()
+  const [ftmPrice] = useFtmPrice()
   const token0USD =
-    token0?.derivedETH && ethPrice ? formattedNum(parseFloat(token0.derivedETH) * parseFloat(ethPrice), true) : ''
+    token0?.derivedFTM && ftmPrice ? formattedNum(parseFloat(token0.derivedFTM) * parseFloat(ftmPrice), true) : ''
 
   const token1USD =
-    token1?.derivedETH && ethPrice ? formattedNum(parseFloat(token1.derivedETH) * parseFloat(ethPrice), true) : ''
+    token1?.derivedFTM && ftmPrice ? formattedNum(parseFloat(token1.derivedFTM) * parseFloat(ftmPrice), true) : ''
 
   // rates
   const token0Rate = reserve0 && reserve1 ? formattedNum(reserve1 / reserve0) : '-'
@@ -312,7 +312,7 @@ function PairPage({ pairAddress, history }) {
                   <TYPE.main fontSize={'16px'} lineHeight={1} fontWeight={500} ml={'4px'}>
                     {token0 && token1
                       ? `1 ${formattedSymbol0} = ${token0Rate} ${formattedSymbol1} ${
-                          parseFloat(token0?.derivedETH) ? '(' + token0USD + ')' : ''
+                          parseFloat(token0?.derivedFTM) ? '(' + token0USD + ')' : ''
                         }`
                       : '-'}
                   </TYPE.main>
@@ -324,7 +324,7 @@ function PairPage({ pairAddress, history }) {
                   <TYPE.main fontSize={'16px'} lineHeight={1} fontWeight={500} ml={'4px'}>
                     {token0 && token1
                       ? `1 ${formattedSymbol1} = ${token1Rate} ${formattedSymbol0}  ${
-                          parseFloat(token1?.derivedETH) ? '(' + token1USD + ')' : ''
+                          parseFloat(token1?.derivedFTM) ? '(' + token1USD + ')' : ''
                         }`
                       : '-'}
                   </TYPE.main>
@@ -501,7 +501,7 @@ function PairPage({ pairAddress, history }) {
                   </Column>
                   <ButtonLight color={backgroundColor}>
                     <Link color={backgroundColor} external href={'https://etherscan.io/address/' + pairAddress}>
-                      View on Etherscan ↗
+                      View on Ftmerscan ↗
                     </Link>
                   </ButtonLight>
                 </TokenDetailsLayout>

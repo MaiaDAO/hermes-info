@@ -364,7 +364,7 @@ function TokenPage({ address, history }) {
                   setChecked={() => setUseTracked(!useTracked)}
                   text={'Hide untracked pairs'}
                 />
-                <QuestionHelper text="USD amounts may be inaccurate in low liquiidty pairs or pairs without ETH or stablecoins." />
+                <QuestionHelper text="USD amounts may be inaccurate in low liquiidty pairs or pairs without FTM or stablecoins." />
               </AutoRow>
             </RowBetween>
             <Panel
@@ -421,7 +421,7 @@ function TokenPage({ address, history }) {
                   </Column>
                   <ButtonLight color={backgroundColor}>
                     <Link color={backgroundColor} external href={'https://etherscan.io/address/' + address}>
-                      View on Etherscan ↗
+                      View on Ftmerscan ↗
                     </Link>
                   </ButtonLight>
                 </TokenDetailsLayout>

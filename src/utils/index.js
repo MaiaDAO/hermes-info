@@ -42,14 +42,14 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
     return (
       `https://app.uniswap.org/#/` +
       (remove ? `remove` : `add`) +
-      `/v2/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${'ETH'}`
+      `/v2/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'FTM' : token0Address}/${'FTM'}`
     )
   } else {
     return (
       `https://app.uniswap.org/#/` +
       (remove ? `remove` : `add`) +
-      `/v2/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address}/${
-        token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address
+      `/v2/${token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'FTM' : token0Address}/${
+        token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'FTM' : token1Address
       }`
     )
   }
@@ -60,13 +60,13 @@ export function getSwapLink(token0Address, token1Address = null) {
     return `https://app.uniswap.org/#/swap?inputCurrency=${token0Address}`
   } else {
     return `https://app.uniswap.org/#/swap?inputCurrency=${
-      token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token0Address
-    }&outputCurrency=${token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'ETH' : token1Address}`
+      token0Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'FTM' : token0Address
+    }&outputCurrency=${token1Address === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2' ? 'FTM' : token1Address}`
   }
 }
 
 export function getMiningPoolLink(token0Address) {
-  return `https://app.uniswap.org/#/uni/ETH/${token0Address}`
+  return `https://app.uniswap.org/#/uni/FTM/${token0Address}`
 }
 
 export function getUniswapAppLink(linkVariable) {
@@ -75,7 +75,7 @@ export function getUniswapAppLink(linkVariable) {
     return baseUniswapUrl
   }
 
-  return `${baseUniswapUrl}/ETH/${linkVariable}`
+  return `${baseUniswapUrl}/FTM/${linkVariable}`
 }
 
 export function localNumber(val) {
@@ -244,24 +244,24 @@ export async function getShareValueOverTime(pairAddress, timestamps) {
         reserve0: result.data[row].reserve0,
         reserve1: result.data[row].reserve1,
         reserveUSD: result.data[row].reserveUSD,
-        token0DerivedETH: result.data[row].token0.derivedETH,
-        token1DerivedETH: result.data[row].token1.derivedETH,
+        token0DerivedFTM: result.data[row].token0.derivedFTM,
+        token1DerivedFTM: result.data[row].token1.derivedFTM,
         roiUsd: values && values[0] ? sharePriceUsd / values[0]['sharePriceUsd'] : 1,
-        ethPrice: 0,
+        ftmPrice: 0,
         token0PriceUSD: 0,
         token1PriceUSD: 0,
       })
     }
   }
 
-  // add eth prices
+  // add ftm prices
   let index = 0
   for (var brow in result?.data) {
     let timestamp = brow.split('b')[1]
     if (timestamp) {
-      values[index].ethPrice = result.data[brow].ethPrice
-      values[index].token0PriceUSD = result.data[brow].ethPrice * values[index].token0DerivedETH
-      values[index].token1PriceUSD = result.data[brow].ethPrice * values[index].token1DerivedETH
+      values[index].ftmPrice = result.data[brow].ftmPrice
+      values[index].token0PriceUSD = result.data[brow].ftmPrice * values[index].token0DerivedFTM
+      values[index].token1PriceUSD = result.data[brow].ftmPrice * values[index].token1DerivedFTM
       index += 1
     }
   }
